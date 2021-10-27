@@ -80,9 +80,20 @@
 		while( !((RCC_CFGR & SWS_MASK)==SWS_PLL_USED_READY)) ;/// I should use this line
 
 
+		////RTC intialise
+
+
+
+
+		/////////
+
+
+
+
 			//// enable  GPIOA clock
 			RCC_AHB1ENR = (((RCC_AHB1ENR ) &(~(0b1<<GPIOAEN_OFFSET ))) |(GOIOAEN_ON  <<GPIOAEN_OFFSET )) ;
 
+			///////Enable timer2 clock  RCC_AHB2ENR
 
 
 

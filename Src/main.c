@@ -21,66 +21,38 @@
 #include "DIO.h"
 #include "MEMORY.h"
 #include "CLOCK.h"
-#include "COMMAN.h"
+#include "TIMERS.h"
 // #include "stm32f4xx_hal.h"
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
- void delay(int t)
-
-  {
-
-	while(t>1)
-				{
-					t--;
-
-				}
-
-   }
-
 
  int main(void)
-  {int x;
+  {   //int x;
 
 
    clock_initialization() ;
-    /* Loop forever */
+
    dio_intialise();
    GPIO_pullup_down(GPIOA,PIN0,  PULLUP);
-   //GPIO_read_bit(GPIOA,PIN0);
+   timer2_initi();
+   timer4_initi();
+
+
+    while(1)
+
+     {
+       //x=GPIO_read_bit(GPIOA,PIN0);
 
 
 
+       GPIO_toggle_atomic( GPIOA, PIN5  );
 
-  while(1)
+      delaytime2_msec(100);
 
-   {
-     x=GPIO_read_bit(GPIOA,PIN0);
 
-    //GPIO_toggle( GPIOA, PIN5  );
-    //assign_GPIO_bit (GPIOA, PIN5, 1);
 
-    delay(500000);
-
-	//GPIOA_BSRR =((GPIOA_BSRR) &(~(0xffff<<16)))  |(GPIOA_BSRR_L  <<16);
-	//GPIO_toggle( GPIOA, PIN5  );
-
-     if(x==0)
-	  {
-	    assign_GPIO_bit_atomic (GPIOA, PIN6, 1);
-	  }else
-	  {
-
-		assign_GPIO_bit_atomic (GPIOA, PIN6, 0);
-	  }
-     GPIO_toggle_atomic( GPIOA, PIN5  );
-     delay(500000);
-
-	//GPIOA_BSRR =((GPIOA_BSRR) &(~(0xffff<<16)))  |(GPIOA_BSRR_L  <<16);
-	//GPIOA_BSRR =((GPIOA_BSRR) &(~(0xffff<<0)))  |(GPIOA_BSRR_L  <<0);
-	//assign_GPIO_bit (GPIOA, PIN5, 0);
-
-    }
- }
+     }
+   }

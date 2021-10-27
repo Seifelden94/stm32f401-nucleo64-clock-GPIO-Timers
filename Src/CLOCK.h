@@ -380,10 +380,25 @@ Set and cleared by software.
 //////////////////RCC AHB2 peripheral clock enable register (RCC_AHB2ENR)
 #define RCC_AHB2ENR         (*((volatile uint32_t *) (RCC_BASE_ADDRESE+ 0x34)))  /// 32 bits
 
+
 //////////////////RCC APB1 peripheral clock enable register (RCC_APB1ENR)
 #define RCC_APB1ENR         (*((volatile uint32_t *) ((RCC_BASE_ADDRESE+ 0x40))))  /// 32 bits
 
-
+/*
+ * Bit 2 TIM4EN: TIM4 clock enable
+Set and cleared by software.
+0: TIM4 clock disabled
+1: TIM4 clock enabled
+ */
+#define  TIM4EN_OFFSET    2
+#define TIM4EN_ON         1
+/* Bit 0 TIM2EN: TIM2 clock enable
+Set and cleared by software.
+0: TIM2 clock disabled
+1: TIM2 clock enabled
+ */
+#define TIM2EN_OFFSET     0
+#define TIM2EN_ON         1
 /*
  * Bit 28 PWREN: Power interface clock enable
 Set and cleared by software.
@@ -410,8 +425,75 @@ Set and cleared by software.
 //////////////////RCC APB2 peripheral clock enabled in low power mode register(RCC_APB2LPENR)
 #define RCC_APB2LPENR        (*((volatile uint32_t *) (RCC_BASE_ADDRESE+ 0x64)))  /// 32 bits
 
+
+
+
 //////////////////RCC Backup domain control register (RCC_BDCR)
 #define RCC_BDCR         (*((volatile uint32_t *) (RCC_BASE_ADDRESE+ 0x70)))  /// 32 bits
+
+
+
+/*
+ * Bit 15 RTCEN: RTC clock enable
+Set and cleared by software.
+0: RTC clock disabled
+1: RTC clock enabled
+*/
+
+#define  RTC__CLOCK_Enable_OFFSET            15
+#define  RTC__CLOCK_Enable_VALUE              1
+
+
+//Bits 14:10 Reserved, must be kept at reset value.
+
+/*
+Bits 9:8 RTCSEL[1:0]: RTC clock source selection
+Set by software to select the clock source for the RTC. Once the RTC clock source has been
+selected, it cannot be changed anymore unless the Backup domain is reset. The BDRST bit
+can be used to reset them.
+00: No clock
+01: LSE oscillator clock used as the RTC clock
+10: LSI oscillator clock used as the RTC clock
+11: HSE oscillator clock divided by a programmable prescaler (selection through the
+RTCPRE[4:0] bits in the RCC clock configuration register (RCC_CFGR)) used as the RTC
+clock*/
+
+#define RTC_CLOCK_SOURCE_SELECTION_OFFSET                   8
+#define RTC_CLOCK_SOURCE_SELECTION_VALUE                   01
+
+/*
+Bits 7:3 Reserved, must be kept at reset value.
+Bit 2 LSEBYP: External low-speed oscillator bypass
+Set and cleared by software to bypass oscillator in debug mode. This bit can be written only
+when the LSE clock is disabled.
+0: LSE oscillator not bypassed
+1: LSE oscillator bypassed
+ */
+
+/*
+ * Bit 1 LSERDY: External low-speed oscillator ready
+Set and cleared by hardware to indicate when the external 32 kHz oscillator is stable. After
+the LSEON bit is cleared, LSERDY goes low after 6 external low-speed oscillator clock
+cycles.
+0: LSE clock not ready
+1: LSE clock ready*/
+
+#define  LSERDY_OFFSET       1
+
+/*Bit 0 LSEON: External low-speed oscillator enable
+Set and cleared by software.
+0: LSE clock OFF
+1: LSE clock ON
+ */
+
+#define  LSERON_OFFSET       0
+
+#define  LSERON_VALUE       1
+
+
+
+
+///////////////
 
 //////////////////RCC clock control & status register (RCC_CSR)
 #define RCC_CSR        (*((volatile uint32_t *) (RCC_BASE_ADDRESE+ 0x74)))  /// 32 bits

@@ -34,7 +34,7 @@ these bits returns the value 0x0000.
 
 
 
-#define GET_BIT(PORT_NAME,bit_number)           (((PORT_NAME)>>bit_number)&1)// move the bit I want to read to the first bit than and & it with 1 to read its value, if it was 0 so 0 &1=0. if it was 1 so 1&1=1
+//#define GET_BIT(PORT_NAME,bit_number)           (((PORT_NAME)>>bit_number)&1)// move the bit I want to read to the first bit than and & it with 1 to read its value, if it was 0 so 0 &1=0. if it was 1 so 1&1=1
 
 //#define GET_BIT(PORT_NAME,bit_number)           (((input_val)>>bit_number)&1)// move the bit I want to read to the first bit than and & it with 1 to read its value, if it was 0 so 0 &1=0. if it was 1 so 1&1=1
 
@@ -45,7 +45,7 @@ these bits returns the value 0x0000.
 
 //#define TOGGLE_BIT(bit_number)                   output_val ^=(1<<bit_number) // if it was one it will become zero if it was zero it will become 1 doing that using xor ^
 
-#define TOGGLE_BIT(PORT_NAME,bit_number)                 PORT_NAME ^=(1<<bit_number) // if it was one it will become zero if it was zero it will become 1 doing that using xor ^
+//#define TOGGLE_BIT(PORT_NAME,bit_number)                 PORT_NAME ^=(1<<bit_number) // if it was one it will become zero if it was zero it will become 1 doing that using xor ^
 
 
 

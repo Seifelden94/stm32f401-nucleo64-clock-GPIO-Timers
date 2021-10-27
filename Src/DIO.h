@@ -242,16 +242,16 @@ technecally I can write dirrectly to the pins but I only did that to make sure I
 #define PINA11_MODE        1
 
 #define PINA12_W_MODE         0b0
-#define PINA12_MODE        1
+#define PINA12_MODE        0b00
 
 #define PINA13_W_MODE         0b0
-#define PINA13_MODE        0b01
+#define PINA13_MODE        0b00
 
 #define PINA14_W_MODE         0b0
-#define PINA14_MODE       0b01
+#define PINA14_MODE       0b00
 
 #define PINA15_W_MODE         0b0
-#define PINA15_MODE       0b01
+#define PINA15_MODE       0b00
 
 
 //////////
@@ -263,7 +263,7 @@ technecally I can write dirrectly to the pins but I only did that to make sure I
 
 #define GPIOA_MODE         (PINA0_MODE<<0)|(PINA1_MODE<<2) |(PINA2_MODE<<4) |(PINA3_MODE<<6) |(PINA4_MODE<<8) |(PINA5_MODE<<10) |(PINA6_MODE<<12) |(PINA7_MODE<<14) |(PINA8_MODE<<16) |(PINA9_MODE<<18)|(PINA10_MODE<<20) |(PINA11_MODE<<22) |(PINA12_MODE<<24) |(PINA13_MODE<<26) |(PINA14_MODE<<28) |(PINA15_MODE<<30)
 
-
+//010000000000//
 void gpio_registers_address_assign( GPIO *gpio,uint32_t GPIOX_BASE_ADDRESE) ;
 void dio_intialise(void) ;
 

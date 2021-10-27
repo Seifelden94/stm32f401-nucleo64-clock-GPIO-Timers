@@ -9,7 +9,7 @@
 	  	  gpio_registers_address_assign(GPIOA,GPIOA_BASE_ADDRESE); //// Give it the GPIO I want to intialise and I the GPIO Base address
 
 
-         *GPIOa.MODER = ((*GPIOa.MODER) &(~(0xffff<<0)))  |(GPIOA_MODE  <<0) ;/// Make sure not to change pin PA13, PA14 beacue they are used for depuging
+         *GPIOa.MODER = ((*GPIOa.MODER) &(~(0xfff<<0)))  |(GPIOA_MODE  <<0) ;/// Make sure not to change pin PA13, PA14 beacue they are used for depuging
 
 
 
